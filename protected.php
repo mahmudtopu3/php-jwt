@@ -15,7 +15,7 @@ $jwt = null;
 $databaseService = new DatabaseService();
 $conn = $databaseService->getConnection();
 
-//$data = json_decode(file_get_contents("php://input"));
+$data = json_decode(file_get_contents("php://input"));
 
 
 $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
@@ -40,6 +40,7 @@ if($jwt){
         echo json_encode(array(
             "message" => "Access granted:",
             //"error" => $e->getMessage()
+            "data" => "abcd"
         ));
 
     }catch (Exception $e){

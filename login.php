@@ -57,7 +57,8 @@ if($num > 0){
                 "id" => $id,
                 "firstname" => $firstname,
                 "lastname" => $lastname,
-                "email" => $email
+                "email" => $email,
+                
         ));
 
         http_response_code(200);
@@ -68,7 +69,8 @@ if($num > 0){
                 "message" => "Successful login.",
                 "jwt" => $jwt,
                 "email" => $email,
-                "expireAt" => $expire_claim
+                "expireAt" => $expire_claim,
+                "data" => "abcd"
             ));
     }
     else{
