@@ -1,0 +1,25 @@
+  public function index()
+    {
+      
+
+        $data = array(
+            'email' => 'mahmudtopu3@gmail.com',
+            'password' => 'admin123' 
+         );
+         $url = "http://127.0.0.1:8080/api/login.php";
+         $client = new \GuzzleHttp\Client(['http_errors' => false]);
+         try{
+            $response = $client->post($url, [
+                'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json'],
+                'body'    => json_encode($data)
+            ]); 
+            
+            echo $response->getStatusCode();
+            dd(json_decode($response->getBody(), true));
+         }
+         catch(\Guzzle\Http\Exception\BadResponseException $e){
+            echo 'Uh oh! ' . $e->getMessage();
+         }
+  
+        //return Demo::get();
+    }
